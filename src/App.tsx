@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 
-interface Props {
+interface VoyageProgressProps {
     portOfLoading: string;
     portOfDischarge: string;
     departureTime: string | Date;
@@ -9,6 +9,7 @@ interface Props {
 }
 
 interface PinProps {
+    style?: React.CSSProperties;
     position: number;
     visible: boolean;
 }
@@ -51,7 +52,7 @@ const Pin = styled.div`
     z-index: 1;
 `;
 
-const App: React.FunctionComponent<Props> = ({
+const App: React.FC<VoyageProgressProps> = ({
     portOfLoading,
     portOfDischarge,
     departureTime,
@@ -89,7 +90,7 @@ const App: React.FunctionComponent<Props> = ({
         <ProgressContainer>
             <ProgressAxis>
                 {dots}
-                <Pin style={{ left: `${pinPosition}%` }} visible={pinVisible} />
+                <Pin style={{ left: `${pinPosition}%` }} />
             </ProgressAxis>
             <PortLabel>{pinLabel}</PortLabel>
         </ProgressContainer>
