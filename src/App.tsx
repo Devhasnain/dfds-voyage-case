@@ -35,11 +35,10 @@ const ProgressContainer = styled.div`
 
 const ProgressAxis = styled.div`
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    height: 30px;
+    margin-top: 25%;
     width: 80%;
-    background-color: lightgray;
-    border-radius: 15px;
 `;
 
 const Dot = styled.div`
