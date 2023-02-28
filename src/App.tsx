@@ -34,6 +34,7 @@ const ProgressContainer = styled.div`
 `;
 
 const ProgressAxis = styled.div`
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,11 +43,34 @@ const ProgressAxis = styled.div`
 `;
 
 const Dot = styled.div`
-    height: 10px;
-    width: 10px;
+    height: 15px;
+    width: 15px;
     background-color: ${(props: { active: boolean }) =>
-        props.active ? 'darkblue' : 'lightgray'};
+        props.active ? '#0E2A43' : '#89A1BE'};
     border-radius: 50%;
+
+    :first-child,
+    :nth-last-child(2) {
+        position: relative;
+        height: 40px;
+        width: 40px;
+    }
+
+    :first-child::before {
+        content: 'Karlshamn';
+        position: absolute;
+        font-size: 24px;
+        bottom: -50px;
+        left: -70%;
+    }
+
+    :nth-last-child(2)::before {
+        content: 'Klaipeda';
+        position: absolute;
+        font-size: 24px;
+        bottom: -50px;
+        right: -70%;
+    }
 `;
 
 const PortLabel = styled.span`
@@ -55,7 +79,8 @@ const PortLabel = styled.span`
 `;
 
 const Pin = styled.div`
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+    left: 20px;
     height: 20px;
     width: 20px;
     background-color: red;
